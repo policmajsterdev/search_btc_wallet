@@ -22,14 +22,18 @@ def jeden_adres():
             print("Brak informacji o przeznaczeniu.")
 
 def stan_konta(nowy_adres_btc):
+    
     """Funkcja na sprawdzanie nowego adresu"""
+    
     url_new = "XXXXXXXXXX" + nowy_adres_btc
     response_new = requests.get(url_new)
     info_new = response_new.json()
+    
     data_new = info_new['data']
     adress_new = data_new['address']
     balance_new = data_new['balance']
     total_txs = data_new['total_txs']
+    
     print(colors.colored("\n################### ADRES #####################", "red", 'on_yellow'))
     print("  ", adress_new)
     print("   Stan konta:", balance_new, "BTC")
@@ -61,16 +65,16 @@ def stan_konta(nowy_adres_btc):
         print(colors.colored("   Sprawdź na // https://bitinfocharts.com/pl/bitcoin/", "red"))
         input(' Continue..')
     print(colors.colored("  ########## OSTATNIA TRANSAKCJA ##############", "red", 'on_white', attrs=['bold']))
+    
     url_2 = "XXXXXXXXX" + nowy_adres_btc
-
     response_2 = requests.get(url_2)
-
     info_2 = response_2.json()
+    
     data_2 = info_2['data']
     txs = data_2['txs']
     txid_all = txs[:]
+    
     liczba_t = 0
-
     for i in txid_all: # ustalenie ostatniej transakcji
         if i:
             liczba_t+=1
@@ -90,7 +94,6 @@ def stan_konta(nowy_adres_btc):
     czas_transkacji = txid['time']
     czas_transakcji = int(czas_transkacji)
     czas_conv = datetime.utcfromtimestamp(czas_transakcji + 7200).strftime('%Y-%m-%d %H:%M:%S')
-
 
     print("   Data >>>>>>>>>>>>>>>>>>>>>>>>  ", czas_conv)
     print("   Wartość transakcji >>>>>>>>>>  ", wartosc_transakcji, "BTC")
@@ -355,9 +358,6 @@ if status == 200:
 else:
     print("  Status serwera <", status, ">")
     print(colors.colored("  Nie działa", "red"))
-
-
-
 
 #-------------------------------
 
