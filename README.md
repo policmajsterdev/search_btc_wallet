@@ -6,7 +6,7 @@
 ## Info
 * Program bardzo prosty w użyciu, działa na 2 sposoby:
   - Sprawdza czy adres portfela BTC należy do giełdy
-  - Śledzi ostatnie (największe) wypłaty z portfela i informuje po dordze gdy napotka dużą ilość transakcji w lub duże saldo
+  - Śledzi ostatnie (największe) wypłaty z portfela i informuje po drodze, gdy napotka dużą ilość transakcji w lub duże saldo
   
  *W kodzie źródłowym, nie ma linków do API (odezwij się do mnie jeśli chcesz wypróbować program)
  *W kodzie źródłowym dodany jest jedynie 1 adres Giełdy Binance - pozostałe wyszukiwane są z pomocą zewnętrznego API.
